@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome {{ user }}</h2>
+    <p>Login successful.</p>
+
+    <hr>
+
+    <h3>User Search</h3>
+
+    <form method="GET" action="/search">
+        <input 
+            type="text" 
+            name="q" 
+            placeholder="Search username (try SQLi payloads)"
+            size="40"
+        >
+        <button type="submit">Search</button>
+    </form>
+
+    <p>
+        Examples to try:
+        <ul>
+            <li><code>' OR 1=1--</code></li>
+            <li><code>' UNION SELECT 1,sqlite_version(),3--</code></li>
+            <li><code>'</code></li>
+        </ul>
+    </p>
+
+    <p><i>Results are returned as raw JSON.</i></p>
+</body>
+</html>
